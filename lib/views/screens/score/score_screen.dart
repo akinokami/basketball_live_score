@@ -25,7 +25,7 @@ class PlayScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(10.w),
+        padding: EdgeInsets.all(5.w),
         child: Column(
           children: [
             CustomCard(
