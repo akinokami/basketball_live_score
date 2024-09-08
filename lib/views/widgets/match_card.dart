@@ -13,70 +13,75 @@ class MatchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-            width: 1.sw * 0.10,
-            child: events?.state == 1
-                ? CustomText(text: getTime(events?.date ?? 0))
-                : events?.state == 2
-                    ? Row(
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: secondaryColor,
-                            size: 10.sp,
-                          ),
-                          kSizedBoxW5,
-                          CustomText(
-                            text: "Q${events?.period ?? ''}",
-                            color: secondaryColor,
-                            fontWeight: FontWeight.bold,
-                          )
-                        ],
-                      )
-                    : events?.state == 3
-                        ? const CustomText(text: 'End')
-                        : events?.state == 4
-                            ? const CustomText(text: 'PP')
-                            : const CustomText(text: '')),
-        Expanded(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.sports_basketball,
-                    size: 18.sp,
-                    color: secondaryColor,
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Expanded(
-                      child: CustomText(text: events?.homeTeam?.name ?? '')),
-                  CustomText(text: "${events?.scores?.seven?.home ?? '-'}")
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.sports_basketball,
-                    size: 18.sp,
-                    color: secondaryColor,
-                  ),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Expanded(
-                      child: CustomText(text: events?.awayTeam?.name ?? '')),
-                  CustomText(text: "${events?.scores?.seven?.away ?? '-'}")
-                ],
-              ),
-            ],
-          ),
-        )
-      ],
+    return InkWell(
+      onTap: () {
+        //
+      },
+      child: Row(
+        children: [
+          SizedBox(
+              width: 1.sw * 0.10,
+              child: events?.state == 1
+                  ? CustomText(text: getTime(events?.date ?? 0))
+                  : events?.state == 2
+                      ? Row(
+                          children: [
+                            Icon(
+                              Icons.circle,
+                              color: secondaryColor,
+                              size: 10.sp,
+                            ),
+                            kSizedBoxW5,
+                            CustomText(
+                              text: "Q${events?.period ?? ''}",
+                              color: secondaryColor,
+                              fontWeight: FontWeight.bold,
+                            )
+                          ],
+                        )
+                      : events?.state == 3
+                          ? const CustomText(text: 'End')
+                          : events?.state == 4
+                              ? const CustomText(text: 'PP')
+                              : const CustomText(text: '')),
+          Expanded(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.sports_basketball,
+                      size: 18.sp,
+                      color: secondaryColor,
+                    ),
+                    SizedBox(
+                      width: 10.w,
+                    ),
+                    Expanded(
+                        child: CustomText(text: events?.homeTeam?.name ?? '')),
+                    CustomText(text: "${events?.scores?.seven?.home ?? '-'}")
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.sports_basketball,
+                      size: 18.sp,
+                      color: secondaryColor,
+                    ),
+                    SizedBox(
+                      width: 10.w,
+                    ),
+                    Expanded(
+                        child: CustomText(text: events?.awayTeam?.name ?? '')),
+                    CustomText(text: "${events?.scores?.seven?.away ?? '-'}")
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
