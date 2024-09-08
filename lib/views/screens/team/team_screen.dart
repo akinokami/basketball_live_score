@@ -15,7 +15,7 @@ class TeamScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final teamController = Get.put(TeamController());
     return DefaultTabController(
-      length: 4,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -65,10 +65,8 @@ class TeamScreen extends StatelessWidget {
                             labelColor: Colors.white,
                             indicatorSize: TabBarIndicatorSize.tab,
                             tabs: [
-                              Tab(text: 'info'.tr),
                               Tab(text: 'matches'.tr),
-                              Tab(text: 'result'.tr),
-                              Tab(text: 'squad'.tr),
+                              Tab(text: 'players'.tr),
                             ],
                           ),
                           SizedBox(
