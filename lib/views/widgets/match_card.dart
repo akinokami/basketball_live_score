@@ -58,8 +58,20 @@ class MatchCard extends StatelessWidget {
                       width: 10.w,
                     ),
                     Expanded(
-                        child: CustomText(text: events?.homeTeam?.name ?? '')),
-                    CustomText(text: "${events?.scores?.seven?.home ?? '-'}")
+                        child: CustomText(
+                      text: events?.homeTeam?.name ?? '',
+                      fontWeight: (events?.scores?.seven?.home ?? 0) >
+                              (events?.scores?.seven?.away ?? 0)
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    )),
+                    CustomText(
+                      text: "${events?.scores?.seven?.home ?? '-'}",
+                      fontWeight: (events?.scores?.seven?.home ?? 0) >
+                              (events?.scores?.seven?.away ?? 0)
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    )
                   ],
                 ),
                 Row(
@@ -73,8 +85,21 @@ class MatchCard extends StatelessWidget {
                       width: 10.w,
                     ),
                     Expanded(
-                        child: CustomText(text: events?.awayTeam?.name ?? '')),
-                    CustomText(text: "${events?.scores?.seven?.away ?? '-'}")
+                      child: CustomText(
+                        text: events?.awayTeam?.name ?? '',
+                        fontWeight: (events?.scores?.seven?.away ?? 0) >
+                                (events?.scores?.seven?.home ?? 0)
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                      ),
+                    ),
+                    CustomText(
+                      text: "${events?.scores?.seven?.away ?? '-'}",
+                      fontWeight: (events?.scores?.seven?.away ?? 0) >
+                              (events?.scores?.seven?.home ?? 0)
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    )
                   ],
                 ),
               ],
