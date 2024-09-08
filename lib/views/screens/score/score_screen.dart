@@ -26,74 +26,50 @@ class PlayScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(5.w),
-        child: Padding(
-            padding: EdgeInsets.all(5.w),
-            child: ListView.builder(
-                itemCount: 100,
-                itemBuilder: (context, index) {
-                  return CustomCard(
-                    padding: 0.w,
-                    widget: ExpansionTile(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.r)),
-                      collapsedBackgroundColor: Colors.white,
-                      collapsedShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.r)),
-                      childrenPadding: EdgeInsets.all(10.w),
-                      leading: Icon(
-                        Icons.sports_basketball,
-                        size: 18.sp,
-                        color: secondaryColor,
-                      ),
-                      title: const CustomText(text: 'NBA'),
-                      children: [
-                        ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: 5,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return Column(
-                                children: [
-                                  kSizedBoxH5,
-                                  MatchCard(),
-                                  kSizedBoxH5,
-                                  Visibility(
-                                    visible: index != 4,
-                                    child: Divider(
-                                        height: 1.h,
-                                        color: grey.withOpacity(0.3)),
-                                  ),
-                                ],
-                              );
-                            })
-                      ],
+          padding: EdgeInsets.all(5.w),
+          child: ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index) {
+                return CustomCard(
+                  padding: 0.w,
+                  widget: ExpansionTile(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.r)),
+                    collapsedBackgroundColor: Colors.white,
+                    collapsedShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.r)),
+                    childrenPadding: EdgeInsets.all(10.w),
+                    leading: Icon(
+                      Icons.sports_basketball,
+                      size: 18.sp,
+                      color: secondaryColor,
                     ),
-                  );
-                  // Column(
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Icon(
-                  //           Icons.sports_basketball,
-                  //           size: 18.sp,
-                  //           color: secondaryColor,
-                  //         ),
-                  //         SizedBox(
-                  //           width: 10.w,
-                  //         ),
-                  //         CustomText(text: 'NBA')
-                  //       ],
-                  //     ),
-                  //     kSizedBoxH5,
-                  //     Divider(height: 1.h, color: grey.withOpacity(0.3)),
-                  //     kSizedBoxH5,
-                  //     MatchCard(),
-                  //   ],
-                  // ),
-                })),
-      ),
+                    title: const CustomText(text: 'NBA'),
+                    children: [
+                      ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 5,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                kSizedBoxH5,
+                                MatchCard(),
+                                kSizedBoxH5,
+                                Visibility(
+                                  visible: index != 4,
+                                  child: Divider(
+                                      height: 1.h,
+                                      color: grey.withOpacity(0.3)),
+                                ),
+                              ],
+                            );
+                          })
+                    ],
+                  ),
+                );
+              })),
     );
   }
 }

@@ -2,12 +2,12 @@ import 'package:basketball_live_score/views/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../models/match_model.dart';
 import '../../utils/color_const.dart';
 
 class MatchCard extends StatelessWidget {
-  const MatchCard({
-    super.key,
-  });
+  final MatchModel? matchModel;
+  const MatchCard({super.key, this.matchModel});
 
   @override
   Widget build(BuildContext context) {
