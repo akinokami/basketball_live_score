@@ -1,4 +1,5 @@
 import 'package:basketball_live_score/utils/dimen_const.dart';
+import 'package:basketball_live_score/utils/function.dart';
 import 'package:basketball_live_score/views/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +18,7 @@ class MatchCard extends StatelessWidget {
         SizedBox(
             width: 1.sw * 0.10,
             child: events?.state == 1
-                ? CustomText(text: '19:00')
+                ? CustomText(text: getTime(events?.date ?? 0))
                 : events?.state == 2
                     ? Row(
                         children: [
