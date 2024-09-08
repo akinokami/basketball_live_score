@@ -9,12 +9,14 @@ class CustomCard extends StatelessWidget {
     this.color,
     required this.widget,
     this.cardElevation,
+    this.padding,
   });
   final double? height;
   final double? width;
   final Color? color;
   final Widget widget;
   final double? cardElevation;
+  final double? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CustomCard extends StatelessWidget {
       margin: EdgeInsets.all(5.w),
       //height: height ?? 50.h,
       width: width ?? double.infinity,
-      padding: EdgeInsets.all(10.w),
+      padding: EdgeInsets.all(padding ?? 10.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.r),
