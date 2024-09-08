@@ -2,7 +2,6 @@ import 'package:basketball_live_score/controller/match_controller.dart';
 import 'package:basketball_live_score/utils/color_const.dart';
 import 'package:basketball_live_score/utils/dimen_const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
