@@ -34,7 +34,9 @@ class MatchCard extends StatelessWidget {
                             kSizedBoxW5,
                             events?.liveTimeRemaining != null
                                 ? CustomText(
-                                    text: "Q${events?.period ?? ''}",
+                                    text: (events?.period ?? 0) > 3
+                                        ? "Q${((events?.period ?? 0) - 1)}"
+                                        : "Q${events?.period ?? ''}",
                                     color: secondaryColor,
                                     fontWeight: FontWeight.bold,
                                   )

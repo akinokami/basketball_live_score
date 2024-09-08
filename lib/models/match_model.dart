@@ -282,12 +282,20 @@ class Team {
 }
 
 class Scores {
-  Seven? seven;
+  Period? seven;
+  Period? one;
+  Period? two;
+  Period? four;
+  Period? five;
 
   Scores({this.seven});
 
   Scores.fromJson(Map<String, dynamic> json) {
-    seven = json['7'] != null ? Seven.fromJson(json['7']) : null;
+    seven = json['7'] != null ? Period.fromJson(json['7']) : null;
+    one = json['1'] != null ? Period.fromJson(json['1']) : null;
+    two = json['2'] != null ? Period.fromJson(json['2']) : null;
+    four = json['4'] != null ? Period.fromJson(json['4']) : null;
+    five = json['5'] != null ? Period.fromJson(json['5']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -295,17 +303,29 @@ class Scores {
     if (seven != null) {
       data['7'] = seven!.toJson();
     }
+    if (one != null) {
+      data['1'] = one!.toJson();
+    }
+    if (two != null) {
+      data['2'] = two!.toJson();
+    }
+    if (four != null) {
+      data['4'] = four!.toJson();
+    }
+    if (five != null) {
+      data['5'] = five!.toJson();
+    }
     return data;
   }
 }
 
-class Seven {
+class Period {
   int? home;
   int? away;
 
-  Seven({this.home, this.away});
+  Period({this.home, this.away});
 
-  Seven.fromJson(Map<String, dynamic> json) {
+  Period.fromJson(Map<String, dynamic> json) {
     home = json['home'];
     away = json['away'];
   }
