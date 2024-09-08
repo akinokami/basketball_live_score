@@ -35,6 +35,13 @@ class PlayScreen extends StatelessWidget {
                   return CustomCard(
                     padding: 0.w,
                     widget: ExpansionTile(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.r)),
+                      collapsedBackgroundColor: Colors.white,
+                      collapsedShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.r)),
+                      childrenPadding: EdgeInsets.all(10.w),
                       leading: Icon(
                         Icons.sports_basketball,
                         size: 18.sp,
@@ -42,8 +49,25 @@ class PlayScreen extends StatelessWidget {
                       ),
                       title: const CustomText(text: 'NBA'),
                       children: [
-                        MatchCard(),
-                        MatchCard(),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: 5,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Column(
+                                children: [
+                                  kSizedBoxH5,
+                                  MatchCard(),
+                                  kSizedBoxH5,
+                                  Visibility(
+                                    visible: index != 4,
+                                    child: Divider(
+                                        height: 1.h,
+                                        color: grey.withOpacity(0.3)),
+                                  ),
+                                ],
+                              );
+                            })
                       ],
                     ),
                   );
