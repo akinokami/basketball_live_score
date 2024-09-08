@@ -156,7 +156,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                 Icons.sports_basketball,
                 size: 18.sp,
               ),
-              label: 'score'.tr,
+              label: 'matches'.tr,
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
