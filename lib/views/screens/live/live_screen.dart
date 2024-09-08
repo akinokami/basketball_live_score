@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import '../../widgets/custom_card.dart';
 import '../../widgets/custom_text.dart';
 
-class PlayScreen extends StatelessWidget {
-  const PlayScreen({super.key});
+class LiveScreen extends StatelessWidget {
+  const LiveScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PlayScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: CustomText(
-          text: 'score'.tr,
+          text: 'live'.tr,
           fontSize: 15.sp,
           fontWeight: FontWeight.w500,
         ),

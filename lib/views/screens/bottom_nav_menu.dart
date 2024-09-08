@@ -1,3 +1,4 @@
+import 'package:basketball_live_score/views/screens/live/live_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:basketball_live_score/utils/enum.dart';
@@ -152,10 +153,18 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.scoreboard_outlined,
+                Icons.sports_basketball,
                 size: 18.sp,
               ),
               label: 'score'.tr,
+              backgroundColor: primaryColor,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.live_tv,
+                size: 18.sp,
+              ),
+              label: 'live'.tr,
               backgroundColor: primaryColor,
             ),
             BottomNavigationBarItem(
@@ -182,6 +191,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
             index: bottomNavController.tabIndex.value,
             children: const [
               PlayScreen(),
+              LiveScreen(),
               SettingScreen(),
             ],
           )),
