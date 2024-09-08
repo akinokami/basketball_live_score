@@ -167,6 +167,8 @@ class Events {
   int? state;
   int? coverage;
   int? period;
+  int? liveTime;
+  int? liveTimeRemaining;
   int? eventHasRanking;
   int? important;
   int? competitionId;
@@ -174,21 +176,28 @@ class Events {
   Team? homeTeam;
   Team? awayTeam;
   Scores? scores;
+  double? pourcent1;
+  double? pourcent2;
 
-  Events(
-      {this.id,
-      this.date,
-      this.day,
-      this.state,
-      this.coverage,
-      this.period,
-      this.eventHasRanking,
-      this.important,
-      this.competitionId,
-      this.competitionCallId,
-      this.homeTeam,
-      this.awayTeam,
-      this.scores});
+  Events({
+    this.id,
+    this.date,
+    this.day,
+    this.state,
+    this.coverage,
+    this.period,
+    this.liveTime,
+    this.liveTimeRemaining,
+    this.eventHasRanking,
+    this.important,
+    this.competitionId,
+    this.competitionCallId,
+    this.homeTeam,
+    this.awayTeam,
+    this.scores,
+    this.pourcent1,
+    this.pourcent2,
+  });
 
   Events.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -197,6 +206,8 @@ class Events {
     state = json['state'];
     coverage = json['coverage'];
     period = json['period'];
+    liveTime = json['liveTime'];
+    liveTimeRemaining = json['liveTimeRemaining'];
     eventHasRanking = json['eventHasRanking'];
     important = json['important'];
     competitionId = json['competitionId'];
@@ -206,6 +217,8 @@ class Events {
     awayTeam =
         json['awayTeam'] != null ? Team.fromJson(json['awayTeam']) : null;
     scores = json['scores'] != null ? Scores.fromJson(json['scores']) : null;
+    pourcent1 = json['pourcent_1'];
+    pourcent2 = json['pourcent_2'];
   }
 
   Map<String, dynamic> toJson() {
@@ -216,6 +229,8 @@ class Events {
     data['state'] = state;
     data['coverage'] = coverage;
     data['period'] = period;
+    data['liveTime'] = liveTime;
+    data['liveTimeRemaining'] = liveTimeRemaining;
     data['eventHasRanking'] = eventHasRanking;
     data['important'] = important;
     data['competitionId'] = competitionId;
@@ -229,6 +244,8 @@ class Events {
     if (scores != null) {
       data['scores'] = scores!.toJson();
     }
+    data['pourcent_1'] = pourcent1;
+    data['pourcent_2'] = pourcent2;
     return data;
   }
 }

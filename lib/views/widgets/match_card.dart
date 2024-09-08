@@ -32,11 +32,17 @@ class MatchCard extends StatelessWidget {
                               size: 10.sp,
                             ),
                             kSizedBoxW5,
-                            CustomText(
-                              text: "Q${events?.period ?? ''}",
-                              color: secondaryColor,
-                              fontWeight: FontWeight.bold,
-                            )
+                            events?.liveTimeRemaining != null
+                                ? CustomText(
+                                    text: "Q${events?.period ?? ''}",
+                                    color: secondaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                : CustomText(
+                                    text: 'HT',
+                                    color: secondaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  )
                           ],
                         )
                       : events?.state == 3
@@ -60,16 +66,20 @@ class MatchCard extends StatelessWidget {
                     Expanded(
                         child: CustomText(
                       text: events?.homeTeam?.name ?? '',
-                      fontWeight: (events?.scores?.seven?.home ?? 0) >
-                              (events?.scores?.seven?.away ?? 0)
-                          ? FontWeight.bold
+                      fontWeight: events?.state == 3
+                          ? (events?.scores?.seven?.home ?? 0) >
+                                  (events?.scores?.seven?.away ?? 0)
+                              ? FontWeight.bold
+                              : FontWeight.normal
                           : FontWeight.normal,
                     )),
                     CustomText(
                       text: "${events?.scores?.seven?.home ?? '-'}",
-                      fontWeight: (events?.scores?.seven?.home ?? 0) >
-                              (events?.scores?.seven?.away ?? 0)
-                          ? FontWeight.bold
+                      fontWeight: events?.state == 3
+                          ? (events?.scores?.seven?.home ?? 0) >
+                                  (events?.scores?.seven?.away ?? 0)
+                              ? FontWeight.bold
+                              : FontWeight.normal
                           : FontWeight.normal,
                     )
                   ],
@@ -87,17 +97,21 @@ class MatchCard extends StatelessWidget {
                     Expanded(
                       child: CustomText(
                         text: events?.awayTeam?.name ?? '',
-                        fontWeight: (events?.scores?.seven?.away ?? 0) >
-                                (events?.scores?.seven?.home ?? 0)
-                            ? FontWeight.bold
+                        fontWeight: events?.state == 3
+                            ? (events?.scores?.seven?.away ?? 0) >
+                                    (events?.scores?.seven?.home ?? 0)
+                                ? FontWeight.bold
+                                : FontWeight.normal
                             : FontWeight.normal,
                       ),
                     ),
                     CustomText(
                       text: "${events?.scores?.seven?.away ?? '-'}",
-                      fontWeight: (events?.scores?.seven?.away ?? 0) >
-                              (events?.scores?.seven?.home ?? 0)
-                          ? FontWeight.bold
+                      fontWeight: events?.state == 3
+                          ? (events?.scores?.seven?.away ?? 0) >
+                                  (events?.scores?.seven?.home ?? 0)
+                              ? FontWeight.bold
+                              : FontWeight.normal
                           : FontWeight.normal,
                     )
                   ],
