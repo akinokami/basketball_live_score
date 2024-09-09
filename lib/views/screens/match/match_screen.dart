@@ -9,6 +9,7 @@ import '../../widgets/custom_card.dart';
 import '../../widgets/custom_loading.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/match_card.dart';
+import '../search/search_screen.dart';
 
 class MatchScreen extends StatelessWidget {
   const MatchScreen({super.key});
@@ -30,9 +31,9 @@ class MatchScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              // Get.to(() => const SearchScreen(), arguments: {
-              //   'matches': matchController.matches,
-              // });
+              Get.to(() => const SearchScreen(), arguments: {
+                'matches': matchController.matches,
+              });
             },
             icon: Icon(
               Icons.search,

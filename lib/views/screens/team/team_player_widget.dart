@@ -93,7 +93,7 @@ class PlayerWidget extends StatelessWidget {
                             CustomText(
                               text: player?.playerList?[index].player?.country
                                       ?.name ??
-                                  '',
+                                  '-',
                               fontSize: 11.sp,
                             ),
                           ],

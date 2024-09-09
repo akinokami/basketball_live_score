@@ -226,6 +226,8 @@ class Events {
   int? state;
   int? coverage;
   int? period;
+  int? liveTime;
+  int? liveTimeRemaining;
   CompetitionDetail? competitionDetail;
   HomeTeam? homeTeam;
   HomeTeam? awayTeam;
@@ -238,6 +240,8 @@ class Events {
       this.state,
       this.coverage,
       this.period,
+      this.liveTime,
+      this.liveTimeRemaining,
       this.competitionDetail,
       this.homeTeam,
       this.awayTeam,
@@ -250,6 +254,8 @@ class Events {
     state = json['state'];
     coverage = json['coverage'];
     period = json['period'];
+    liveTime = json['liveTime'];
+    liveTimeRemaining = json['liveTimeRemaining'];
     competitionDetail = json['competitionDetail'] != null
         ? CompetitionDetail.fromJson(json['competitionDetail'])
         : null;
@@ -268,6 +274,8 @@ class Events {
     data['state'] = state;
     data['coverage'] = coverage;
     data['period'] = period;
+    data['liveTime'] = liveTime;
+    data['liveTimeRemaining'] = liveTimeRemaining;
     if (competitionDetail != null) {
       data['competitionDetail'] = competitionDetail!.toJson();
     }

@@ -1,9 +1,11 @@
+import 'package:basketball_live_score/views/screens/team/team_match_widget.dart';
 import 'package:basketball_live_score/views/screens/team/team_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/team_controller.dart';
+
 import '../../../utils/color_const.dart';
 import '../../../utils/dimen_const.dart';
 import '../../widgets/custom_loading.dart';
@@ -24,7 +26,7 @@ class TeamScreen extends StatelessWidget {
           backgroundColor: secondaryColor,
           iconTheme: const IconThemeData(color: Colors.white),
           title: CustomText(
-            text: 'team'.tr,
+            text: ''.tr,
             fontSize: 15.sp,
             fontWeight: FontWeight.w500,
             color: Colors.white,
@@ -41,23 +43,21 @@ class TeamScreen extends StatelessWidget {
                       color: secondaryColor,
                       child: Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(10.w),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.sports_soccer,
-                                  size: 40.sp,
-                                  color: Colors.white,
-                                ),
-                                kSizedBoxW5,
-                                CustomText(
-                                  text:
-                                      'aaa', //teamController.team.value.name ?? '',
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
+                          Icon(
+                            Icons.sports_basketball,
+                            size: 40.sp,
+                            color: Colors.white,
+                          ),
+                          kSizedBoxW5,
+                          CustomText(
+                            text: teamController.team.value.team?.name ?? '',
+                            color: Colors.white,
+                          ),
+                          CustomText(
+                            text:
+                                teamController.team.value.team?.country?.name ??
+                                    '',
+                            color: Colors.white,
                           ),
                           TabBar(
                             onTap: (value) {
@@ -84,7 +84,7 @@ class TeamScreen extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          Container(),
+                          TeamMatchWidget(),
                           Obx(
                             () => teamController.isLoading1.value
                                 ? const Center(
