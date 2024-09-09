@@ -1,6 +1,7 @@
 import 'package:basketball_live_score/models/match_model.dart';
 import 'package:basketball_live_score/utils/color_const.dart';
 import 'package:basketball_live_score/utils/dimen_const.dart';
+import 'package:basketball_live_score/views/screens/match/ranking_widget.dart';
 import 'package:basketball_live_score/views/screens/match/statistics_widget.dart';
 import 'package:basketball_live_score/views/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class MatchDetailScreen extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: 100.w,
+                          height: 60.h,
                           child: Column(
                             children: [
                               Icon(Icons.sports_basketball,
@@ -61,6 +63,7 @@ class MatchDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           width: 100.w,
+                          height: 60.h,
                           child: Column(
                             children: [
                               Icon(Icons.star,
@@ -81,6 +84,7 @@ class MatchDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           width: 100.w,
+                          height: 60.h,
                           child: Column(
                             children: [
                               Icon(Icons.sports_basketball,
@@ -282,7 +286,7 @@ class MatchDetailScreen extends StatelessWidget {
                 child: TabBarView(
                   children: [
                     StatisticsWidget(),
-                    StatisticsWidget(),
+                    RankingWidget(),
                   ],
                 ),
               ),

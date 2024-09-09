@@ -32,7 +32,7 @@ Divider(
               //   // topLeft: Radius.circular(20),
               // ),
             ),
-            child: CustomText(text: "match_statistics".tr,fontSize: 14.sp,fontWeight: FontWeight.bold,),
+            child: CustomText(text: "match_stats".tr,fontSize: 14.sp,fontWeight: FontWeight.bold,),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,

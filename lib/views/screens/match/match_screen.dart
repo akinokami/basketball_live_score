@@ -92,7 +92,7 @@ class MatchScreen extends StatelessWidget {
                               ),
                               title: CustomText(
                                 text:
-                                    "${matchController.matches[index].season?.competition?.country?.name ?? ''} - ${matchController.matches[index].season?.competition?.name ?? ''}",
+                                    "${matchController.matches[index].season?.competition?.country?.name ?? ''} - ${matchController.matches[index].season?.competition?.name ?? ''}, ${matchController.matches[index].name ?? ''}",
                                 maxLines: 2,
                               ),
                               children: [
@@ -107,12 +107,8 @@ class MatchScreen extends StatelessWidget {
                                         children: [
                                           kSizedBoxH5,
                                           MatchCard(
-                                            matchTitle: matchController
-                                                    .matches[index]
-                                                    .season
-                                                    ?.competition
-                                                    ?.name ??
-                                                '',
+                                            matchTitle:
+                                                "${matchController.matches[index].season?.competition?.name ?? ''}, ${matchController.matches[index].name ?? ''}",
                                             events: matchController
                                                 .matches[index].events?[index1],
                                           ),
