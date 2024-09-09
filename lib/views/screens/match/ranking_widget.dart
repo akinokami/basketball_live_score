@@ -1,55 +1,31 @@
+import 'package:basketball_live_score/models/match_model.dart';
 import 'package:basketball_live_score/utils/color_const.dart';
 import 'package:basketball_live_score/utils/dimen_const.dart';
+import 'package:basketball_live_score/views/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controller/match_controller.dart';
 import '../../widgets/custom_text.dart';
 
 class RankingWidget extends StatelessWidget {
-  const RankingWidget({super.key});
-
+  const RankingWidget({super.key, this.events});
+final Events? events;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child:Column(
+    final matchController = Get.put(MatchController());
 
-        children: [
-          kSizedBoxH10,
-          Table(
+    return Obx(()=>SingleChildScrollView(
+      child: matchController.isLoading.value?
+        const Center(child: CustomLoading()):
+        Column(
 
-            children: [
-              TableRow(
-                decoration: BoxDecoration(
-                  color: secondaryColor
-                ) ,
-                children: [
-                  TableCell(child: CustomText(text:'',color: whiteColor,)),
-                  TableCell(child: CustomText(text:'',color: whiteColor,)),
-                  TableCell(child: CustomText(text:'Team',color: whiteColor)),
-                  TableCell(child: CustomText(text:'',color: whiteColor)),
-                  TableCell(child: CustomText(text:'%',color: whiteColor)),
-                  TableCell(child: CustomText(text:'P',color: whiteColor)),
-                  TableCell(child: CustomText(text:'W',color: whiteColor)),
-                  TableCell(child: CustomText(text:'L',color: whiteColor)),
-                  TableCell(child: CustomText(text:'Str',color: whiteColor)),
-                ]
-              ),
-              TableRow(
-                children: [
-                  TableCell(child: CustomText(text:'')),
-                  TableCell(child: CustomText(text:'1')),
-                  TableCell(child: CustomText(text:'Liverpool',maxLines: 3,)),
-                  TableCell(child: CustomText(text:'')),
-                  TableCell(child: CustomText(text:'38')),
-                  TableCell(child: CustomText(text:'32')),
-                  TableCell(child: CustomText(text:'3')),
-                  TableCell(child: CustomText(text:'3')),
-                  TableCell(child: CustomText(text:'85')),
-                ]
-              ),
-             ]
-          )
-        ],
-      ) ,
-    );
+          children: [
+            kSizedBoxH10,
+ CustomText(text: matchController.matchDetails.value.competitionDetail?.name??"")
+          ],
+        )
+
+    ));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:basketball_live_score/models/match_detail_model.dart';
 import 'package:basketball_live_score/models/match_model.dart';
 import 'package:basketball_live_score/models/player_model.dart';
 import 'package:basketball_live_score/models/team_model.dart';
@@ -30,7 +31,28 @@ class ApiRepo {
       throw CustomException(e.toString());
     }
   }
-
+  ///Match Detail
+  Future<MatchDetailsModel> getMatchDetails(int matchID) async {
+    try {
+      final response =
+      await apiUtils.get(url: ApiConstant.baseUrl, queryParameters: {
+        "Operation": "MatchDetails",
+        "allTabs": null,
+        "DeviceType": "a",
+        "TimeLag": 28800,
+        "Version": "2.7.4",
+        "VersionWS": 2.0,
+        "CountryCode": "en_CN",
+        "ApplicationID": 14,
+        "SportID": 3,
+        "MatchID": matchID
+      });
+      final matchDetail = response.data;
+      return MatchDetailsModel.fromJson(matchDetail);
+    } catch (e) {
+      throw CustomException(e.toString());
+    }
+  }
   ///Team
   Future<TeamModel> getTeam(int teamId) async {
     try {

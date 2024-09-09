@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../controller/match_controller.dart';
 import '../../models/match_model.dart';
 import '../../utils/color_const.dart';
 import '../screens/match/match_detail_screen.dart';
@@ -16,8 +17,11 @@ class MatchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final matchController = Get.put(MatchController());
     return InkWell(
       onTap: () {
+        print("Match Id : ${events?.id}");
+        matchController.getMatchesDetail(events?.id ?? 0);
         Get.to(() =>  MatchDetailScreen(events: events, matchTitle: matchTitle));
       },
       child: Row(
