@@ -3,19 +3,22 @@ import 'package:basketball_live_score/utils/function.dart';
 import 'package:basketball_live_score/views/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../models/match_model.dart';
 import '../../utils/color_const.dart';
+import '../screens/match/match_detail_screen.dart';
 
 class MatchCard extends StatelessWidget {
   final Events? events;
-  const MatchCard({super.key, this.events});
+  final String? matchTitle;
+  const MatchCard({super.key, this.events, this.matchTitle});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //
+        Get.to(() =>  MatchDetailScreen(events: events, matchTitle: matchTitle));
       },
       child: Row(
         children: [
