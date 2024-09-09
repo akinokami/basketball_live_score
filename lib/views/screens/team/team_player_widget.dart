@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../models/player_model.dart';
 import '../../../utils/color_const.dart';
 
 class PlayerWidget extends StatelessWidget {
-  const PlayerWidget({super.key});
+  final PlayerModel? player;
+  const PlayerWidget({super.key, this.player});
 
   @override
   Widget build(BuildContext context) {

@@ -133,7 +133,7 @@ class CompetitionsDetailList {
     type = json['type'];
     maxDay = json['maxDay'];
     excluded = json['excluded'];
-    tabs = json['tabs'].cast<int>();
+    tabs = json['tabs'] != null ? json['tabs'].cast<int>() : [];
     slug = json['slug'];
     season = json['season'] != null ? Season.fromJson(json['season']) : null;
     sportId = json['sportId'];
@@ -315,7 +315,7 @@ class HomeTeam {
     slug = json['slug'];
     country =
         json['country'] != null ? Country.fromJson(json['country']) : null;
-    tabs = json['tabs'].cast<int>();
+    tabs = json['tabs'] != null ? json['tabs'].cast<int>() : [];
   }
 
   Map<String, dynamic> toJson() {

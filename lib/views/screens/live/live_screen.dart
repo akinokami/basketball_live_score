@@ -44,7 +44,8 @@ class LiveScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
-                              Get.to(() => const TeamScreen());
+                              Get.to(() => const TeamScreen(),
+                                  arguments: {'teamId': 101628});
                             },
                             child: CustomCard(
                                 widget: Column(

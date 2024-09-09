@@ -60,6 +60,11 @@ class TeamScreen extends StatelessWidget {
                             ),
                           ),
                           TabBar(
+                            onTap: (value) {
+                              if (value == 1) {
+                                teamController.getPlayer();
+                              }
+                            },
                             unselectedLabelColor: Colors.white,
                             indicatorColor: Colors.white,
                             dividerColor: Colors.transparent,
@@ -79,25 +84,16 @@ class TeamScreen extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          Container(), PlayerWidget(),
-                          // TeamInfoWidget(
-                          //   stages: teamController.team.value.stages ?? [],
-                          // ),
-                          // TeamMatchWidget(
-                          //   matches: teamController.team.value.fixtures ?? [],
-                          // ),
-                          // TeamResultWidget(
-                          //   results: teamController.team.value.results ?? [],
-                          // ),
-                          // teamController.players.isEmpty &&
-                          //         teamController.coach.isEmpty
-                          //     ? Center(
-                          //         child: CustomText(text: 'no_data'.tr),
-                          //       )
-                          //     : TeamSquadWidget(
-                          //         players: teamController.players,
-                          //         coach: teamController.coach,
-                          //       )
+                          Container(),
+                          Obx(
+                            () => teamController.isLoading1.value
+                                ? const Center(
+                                    child: CustomLoading(),
+                                  )
+                                : PlayerWidget(
+                                    player: teamController.player.value,
+                                  ),
+                          ),
                         ],
                       ),
                     ),
