@@ -10,6 +10,7 @@ import '../../widgets/custom_loading.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/match_card.dart';
 import '../search/search_screen.dart';
+import 'match_detail_screen.dart';
 
 class MatchScreen extends StatelessWidget {
   const MatchScreen({super.key});
@@ -106,6 +107,12 @@ class MatchScreen extends StatelessWidget {
                                         children: [
                                           kSizedBoxH5,
                                           MatchCard(
+                                            matchTitle: matchController
+                                                    .matches[index]
+                                                    .season
+                                                    ?.competition
+                                                    ?.name ??
+                                                '',
                                             events: matchController
                                                 .matches[index].events?[index1],
                                           ),
