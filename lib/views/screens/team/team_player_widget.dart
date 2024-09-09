@@ -26,7 +26,7 @@ class PlayerWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           CustomText(text: 'average_age'.tr),
-                          CustomText(text: '20')
+                          CustomText(text: "${player?.averageAge ?? '-'}")
                         ],
                       ),
                     ),
@@ -38,7 +38,7 @@ class PlayerWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           CustomText(text: 'average_height'.tr),
-                          CustomText(text: '20')
+                          CustomText(text: "${player?.averageHeight ?? '-'}")
                         ],
                       ),
                     )
@@ -48,8 +48,8 @@ class PlayerWidget extends StatelessWidget {
               kSizedBoxH5,
               Divider(height: 1.h, color: grey.withOpacity(0.3)),
               kSizedBoxH5,
-              CustomText(text: 'average_age'.tr),
-              CustomText(text: '20')
+              CustomText(text: 'average_weight'.tr),
+              CustomText(text: "${player?.averageWeight ?? '-'}")
             ],
           ),
         ),
