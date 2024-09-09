@@ -84,7 +84,9 @@ class TeamScreen extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          TeamMatchWidget(),
+                          TeamMatchWidget(
+                            team: teamController.team.value,
+                          ),
                           Obx(
                             () => teamController.isLoading1.value
                                 ? const Center(
