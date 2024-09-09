@@ -1,3 +1,4 @@
+import 'package:basketball_live_score/views/screens/team/team_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -78,7 +79,7 @@ class TeamScreen extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          Container(), Container(),
+                          Container(), PlayerWidget(),
                           // TeamInfoWidget(
                           //   stages: teamController.team.value.stages ?? [],
                           // ),
