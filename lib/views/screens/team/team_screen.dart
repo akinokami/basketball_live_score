@@ -92,9 +92,14 @@ class TeamScreen extends StatelessWidget {
                                 ? const Center(
                                     child: CustomLoading(),
                                   )
-                                : PlayerWidget(
-                                    player: teamController.player.value,
-                                  ),
+                                : (teamController.player.value.playerList ?? [])
+                                        .isEmpty
+                                    ? Center(
+                                        child: CustomText(text: 'no_data'.tr),
+                                      )
+                                    : PlayerWidget(
+                                        player: teamController.player.value,
+                                      ),
                           ),
                         ],
                       ),

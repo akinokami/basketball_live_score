@@ -10,7 +10,6 @@ import '../../widgets/custom_card.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../../widgets/match_card.dart';
-import '../team/team_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -60,60 +59,52 @@ class SearchScreen extends StatelessWidget {
                               itemCount:
                                   searchMatchController.searchMatches.length,
                               itemBuilder: (context, index) {
-                                return InkWell(
-                                  onTap: () {
-                                    Get.to(() => const TeamScreen(),
-                                        arguments: {'teamId': 101628});
-                                  },
-                                  child: CustomCard(
-                                      widget: Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.sports_basketball,
-                                            size: 18.sp,
-                                            color: secondaryColor,
-                                          ),
-                                          SizedBox(
-                                            width: 10.w,
-                                          ),
-                                          CustomText(
-                                            text:
-                                                "${searchMatchController.searchMatches[index].season?.competition?.country?.name ?? ''} - ${searchMatchController.searchMatches[index].season?.competition?.name ?? ''}",
-                                          )
-                                        ],
-                                      ),
-                                      kSizedBoxH5,
-                                      Divider(
-                                          height: 1.h,
-                                          color: grey.withOpacity(0.3)),
-                                      kSizedBoxH5,
-                                      ListView.builder(
-                                        shrinkWrap: true,
-                                        itemCount: searchMatchController
-                                            .searchMatches[index]
-                                            .events
-                                            ?.length,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        itemBuilder: (context, index1) {
-                                          return Column(
-                                            children: [
-                                              kSizedBoxH5,
-                                              MatchCard(
-                                                events: searchMatchController
-                                                    .searchMatches[index]
-                                                    .events?[index1],
-                                              ),
-                                              kSizedBoxH5,
-                                            ],
-                                          );
-                                        },
-                                      )
-                                    ],
-                                  )),
-                                );
+                                return CustomCard(
+                                    widget: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.sports_basketball,
+                                          size: 18.sp,
+                                          color: secondaryColor,
+                                        ),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        CustomText(
+                                          text:
+                                              "${searchMatchController.searchMatches[index].season?.competition?.country?.name ?? ''} - ${searchMatchController.searchMatches[index].season?.competition?.name ?? ''}",
+                                        )
+                                      ],
+                                    ),
+                                    kSizedBoxH5,
+                                    Divider(
+                                        height: 1.h,
+                                        color: grey.withOpacity(0.3)),
+                                    kSizedBoxH5,
+                                    ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: searchMatchController
+                                          .searchMatches[index].events?.length,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemBuilder: (context, index1) {
+                                        return Column(
+                                          children: [
+                                            kSizedBoxH5,
+                                            MatchCard(
+                                              events: searchMatchController
+                                                  .searchMatches[index]
+                                                  .events?[index1],
+                                            ),
+                                            kSizedBoxH5,
+                                          ],
+                                        );
+                                      },
+                                    )
+                                  ],
+                                ));
                               }),
                         ),
                       ],

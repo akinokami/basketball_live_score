@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/function.dart';
+import '../team/team_screen.dart';
 
 class MatchDetailScreen extends StatelessWidget {
   const MatchDetailScreen({super.key, this.events, this.matchTitle});
@@ -45,20 +46,26 @@ class MatchDetailScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(
-                          width: 100.w,
-                          height: 60.h,
-                          child: Column(
-                            children: [
-                              Icon(Icons.sports_basketball,
-                                  color: Colors.white, size: 20.sp),
-                              kSizedBoxH10,
-                              CustomText(
-                                maxLines: 2,
-                                text: events?.homeTeam?.name ?? '',
-                                color: Colors.white,
-                              ),
-                            ],
+                        InkWell(
+                          onTap: () {
+                            Get.to(() => const TeamScreen(),
+                                arguments: {'teamId': events?.homeTeam?.id});
+                          },
+                          child: SizedBox(
+                            width: 100.w,
+                            height: 60.h,
+                            child: Column(
+                              children: [
+                                Icon(Icons.sports_basketball,
+                                    color: Colors.white, size: 20.sp),
+                                kSizedBoxH10,
+                                CustomText(
+                                  maxLines: 2,
+                                  text: events?.homeTeam?.name ?? '',
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -82,20 +89,26 @@ class MatchDetailScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          width: 100.w,
-                          height: 60.h,
-                          child: Column(
-                            children: [
-                              Icon(Icons.sports_basketball,
-                                  color: Colors.white, size: 20.sp),
-                              kSizedBoxH10,
-                              CustomText(
-                                maxLines: 2,
-                                text: events?.awayTeam?.name ?? '',
-                                color: Colors.white,
-                              ),
-                            ],
+                        InkWell(
+                          onTap: () {
+                            Get.to(() => const TeamScreen(),
+                                arguments: {'teamId': events?.awayTeam?.id});
+                          },
+                          child: SizedBox(
+                            width: 100.w,
+                            height: 60.h,
+                            child: Column(
+                              children: [
+                                Icon(Icons.sports_basketball,
+                                    color: Colors.white, size: 20.sp),
+                                kSizedBoxH10,
+                                CustomText(
+                                  maxLines: 2,
+                                  text: events?.awayTeam?.name ?? '',
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -163,7 +176,7 @@ class MatchDetailScreen extends StatelessWidget {
                         //   bottomRight: Radius.circular(20.r),
                         // ),
                       ),
-                      padding:  EdgeInsets.all(8.w),
+                      padding: EdgeInsets.all(8.w),
                       child: Column(
                         children: [
                           Container(
@@ -174,27 +187,50 @@ class MatchDetailScreen extends StatelessWidget {
                                 top: BorderSide(color: whiteColor, width: 1.h),
                                 //bottom: BorderSide(color: whiteColor, width: 1.h),
                                 left: BorderSide(color: whiteColor, width: 1.h),
-                                right: BorderSide(color: whiteColor, width: 1.h),
+                                right:
+                                    BorderSide(color: whiteColor, width: 1.h),
                               ),
-
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(
                                   width: 100.w,
-                                  child: CustomText(text: "",color: whiteColor,),
+                                  child: CustomText(
+                                    text: "",
+                                    color: whiteColor,
+                                  ),
                                 ),
                                 Expanded(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CustomText(text: "Q1",color: whiteColor,textAlign: TextAlign.center,),
-                                      CustomText(text: "Q2",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "HT",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "Q3",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "Q4",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "FT",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(
+                                        text: "Q1",
+                                        color: whiteColor,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      CustomText(
+                                          text: "Q2",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text: "HT",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text: "Q3",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text: "Q4",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text: "FT",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
                                     ],
                                   ),
                                 )
@@ -210,32 +246,62 @@ class MatchDetailScreen extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.all(8.w),
                             decoration: BoxDecoration(
-                             // color: secondaryColor,
+                              // color: secondaryColor,
                               border: Border(
                                 top: BorderSide(color: whiteColor, width: 1.h),
-                                bottom: BorderSide(color: whiteColor, width: 1.h),
+                                bottom:
+                                    BorderSide(color: whiteColor, width: 1.h),
                                 left: BorderSide(color: whiteColor, width: 1.h),
-                                right: BorderSide(color: whiteColor, width: 1.h),
+                                right:
+                                    BorderSide(color: whiteColor, width: 1.h),
                               ),
-
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(
                                   width: 100.w,
-                                  child: CustomText(text: "${events?.homeTeam?.name}",color: whiteColor,maxLines: 2,),
+                                  child: CustomText(
+                                    text: "${events?.homeTeam?.name}",
+                                    color: whiteColor,
+                                    maxLines: 2,
+                                  ),
                                 ),
                                 Expanded(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CustomText(text: "${events?.scores?.one?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.two?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${((events?.scores?.one?.home)?.toInt()??0)+((events?.scores?.two?.home)?.toInt()??0)}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.four?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.five?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.seven?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.one?.home ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.two?.home ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${((events?.scores?.one?.home)?.toInt() ?? 0) + ((events?.scores?.two?.home)?.toInt() ?? 0)}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.four?.home ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.five?.home ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.seven?.home ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
                                     ],
                                   ),
                                 )
@@ -249,29 +315,59 @@ class MatchDetailScreen extends StatelessWidget {
                               // color: secondaryColor,
                               border: Border(
                                 //top: BorderSide(color: whiteColor, width: 1.h),
-                                bottom: BorderSide(color: whiteColor, width: 1.h),
+                                bottom:
+                                    BorderSide(color: whiteColor, width: 1.h),
                                 left: BorderSide(color: whiteColor, width: 1.h),
-                                right: BorderSide(color: whiteColor, width: 1.h),
+                                right:
+                                    BorderSide(color: whiteColor, width: 1.h),
                               ),
-
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(
                                   width: 100.w,
-                                  child: CustomText(text: "${events?.awayTeam?.name}",color: whiteColor,maxLines: 2,),
+                                  child: CustomText(
+                                    text: "${events?.awayTeam?.name}",
+                                    color: whiteColor,
+                                    maxLines: 2,
+                                  ),
                                 ),
                                 Expanded(
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      CustomText(text: "${events?.scores?.one?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.two?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${((events?.scores?.one?.away)?.toInt()??0)+((events?.scores?.two?.away)?.toInt()??0)}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.four?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.five?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
-                                      CustomText(text: "${events?.scores?.seven?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.one?.away ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.two?.away ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${((events?.scores?.one?.away)?.toInt() ?? 0) + ((events?.scores?.two?.away)?.toInt() ?? 0)}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.four?.away ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.five?.away ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
+                                      CustomText(
+                                          text:
+                                              "${events?.scores?.seven?.away ?? "0"}",
+                                          color: whiteColor,
+                                          textAlign: TextAlign.center),
                                     ],
                                   ),
                                 )
@@ -282,7 +378,6 @@ class MatchDetailScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),
