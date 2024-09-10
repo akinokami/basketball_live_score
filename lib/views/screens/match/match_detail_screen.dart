@@ -420,7 +420,7 @@ class MatchDetailScreen extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    StatisticsWidget(),
+                    StatisticsWidget(events: events,),
                     RankingWidget(
                       events: events,
                     ),
