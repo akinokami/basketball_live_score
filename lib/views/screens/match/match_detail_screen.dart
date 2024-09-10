@@ -166,77 +166,117 @@ class MatchDetailScreen extends StatelessWidget {
                       padding:  EdgeInsets.all(8.w),
                       child: Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: 100.w,
-                                child: CustomText(text: "",color: whiteColor,),
+                          Container(
+                            padding: EdgeInsets.all(8.w),
+                            decoration: BoxDecoration(
+                              // color: secondaryColor,
+                              border: Border(
+                                top: BorderSide(color: whiteColor, width: 1.h),
+                                //bottom: BorderSide(color: whiteColor, width: 1.h),
+                                left: BorderSide(color: whiteColor, width: 1.h),
+                                right: BorderSide(color: whiteColor, width: 1.h),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CustomText(text: "Q1",color: whiteColor,textAlign: TextAlign.center,),
-                                    CustomText(text: "Q2",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "HT",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "Q3",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "Q4",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "FT",color: whiteColor,textAlign: TextAlign.center),
-                                  ],
+
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 100.w,
+                                  child: CustomText(text: "",color: whiteColor,),
                                 ),
-                              )
-                            ],
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CustomText(text: "Q1",color: whiteColor,textAlign: TextAlign.center,),
+                                      CustomText(text: "Q2",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "HT",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "Q3",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "Q4",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "FT",color: whiteColor,textAlign: TextAlign.center),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          kSizedBoxH2,
-                          Divider(
-                            height: 2.h,
-                            color: whiteColor.withOpacity(0.3),
-                          ),
-                          kSizedBoxH2,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: 100.w,
-                                child: CustomText(text: "${events?.homeTeam?.name}",color: whiteColor,maxLines: 2,),
+                          // kSizedBoxH2,
+                          // Divider(
+                          //   height: 2.h,
+                          //   color: whiteColor.withOpacity(0.3),
+                          // ),
+                          //kSizedBoxH2,
+                          Container(
+                            padding: EdgeInsets.all(8.w),
+                            decoration: BoxDecoration(
+                             // color: secondaryColor,
+                              border: Border(
+                                top: BorderSide(color: whiteColor, width: 1.h),
+                                bottom: BorderSide(color: whiteColor, width: 1.h),
+                                left: BorderSide(color: whiteColor, width: 1.h),
+                                right: BorderSide(color: whiteColor, width: 1.h),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CustomText(text: "25",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "22",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "47",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "14",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "15",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "76",color: whiteColor,textAlign: TextAlign.center),
-                                  ],
+
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 100.w,
+                                  child: CustomText(text: "${events?.homeTeam?.name}",color: whiteColor,maxLines: 2,),
                                 ),
-                              )
-                            ],
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CustomText(text: "${events?.scores?.one?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.two?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${((events?.scores?.one?.home)?.toInt()??0)+((events?.scores?.two?.home)?.toInt()??0)}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.four?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.five?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.seven?.home??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: 100.w,
-                                child: CustomText(text: "${events?.awayTeam?.name}",color: whiteColor,maxLines: 2,),
+
+                          Container(
+                            padding: EdgeInsets.all(8.w),
+                            decoration: BoxDecoration(
+                              // color: secondaryColor,
+                              border: Border(
+                                //top: BorderSide(color: whiteColor, width: 1.h),
+                                bottom: BorderSide(color: whiteColor, width: 1.h),
+                                left: BorderSide(color: whiteColor, width: 1.h),
+                                right: BorderSide(color: whiteColor, width: 1.h),
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    CustomText(text: "25",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "22",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "47",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "14",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "15",color: whiteColor,textAlign: TextAlign.center),
-                                    CustomText(text: "76",color: whiteColor,textAlign: TextAlign.center),
-                                  ],
+
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 100.w,
+                                  child: CustomText(text: "${events?.awayTeam?.name}",color: whiteColor,maxLines: 2,),
                                 ),
-                              )
-                            ],
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      CustomText(text: "${events?.scores?.one?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.two?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${((events?.scores?.one?.away)?.toInt()??0)+((events?.scores?.two?.away)?.toInt()??0)}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.four?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.five?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                      CustomText(text: "${events?.scores?.seven?.away??"0"}",color: whiteColor,textAlign: TextAlign.center),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                           kSizedBoxH5,
                         ],
