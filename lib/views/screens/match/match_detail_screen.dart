@@ -63,6 +63,8 @@ class MatchDetailScreen extends StatelessWidget {
                                   maxLines: 2,
                                   text: events?.homeTeam?.name ?? '',
                                   color: Colors.white,
+                                  textAlign: TextAlign.center,
+                                  fontSize: 10.sp,
                                 ),
                               ],
                             ),
@@ -106,6 +108,8 @@ class MatchDetailScreen extends StatelessWidget {
                                   maxLines: 2,
                                   text: events?.awayTeam?.name ?? '',
                                   color: Colors.white,
+                                  textAlign: TextAlign.center,
+                                  fontSize: 10.sp,
                                 ),
                               ],
                             ),
@@ -113,7 +117,7 @@ class MatchDetailScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    kSizedBoxH30,
+                    kSizedBoxH10,
                     SizedBox(
                         width: 1.sw * 0.10,
                         child: events?.state == 1
@@ -138,12 +142,14 @@ class MatchDetailScreen extends StatelessWidget {
                                                   : "Q${events?.period ?? ''}",
                                               color: whiteColor,
                                               fontWeight: FontWeight.bold,
-                                            )
+                                              textAlign: TextAlign.center,
+                                              fontSize: 14.sp)
                                           : CustomText(
                                               text: 'HT',
                                               color: whiteColor,
                                               fontWeight: FontWeight.bold,
-                                            )
+                                              textAlign: TextAlign.center,
+                                              fontSize: 14.sp)
                                     ],
                                   )
                                 : events?.state == 3
@@ -151,18 +157,21 @@ class MatchDetailScreen extends StatelessWidget {
                                         text: 'End',
                                         color: whiteColor,
                                         fontWeight: FontWeight.bold,
-                                      )
+                                        textAlign: TextAlign.center,
+                                        fontSize: 14.sp)
                                     : events?.state == 4
                                         ? CustomText(
                                             text: 'PP',
                                             color: whiteColor,
                                             fontWeight: FontWeight.bold,
-                                          )
+                                            textAlign: TextAlign.center,
+                                            fontSize: 14.sp)
                                         : CustomText(
                                             text: '',
                                             color: whiteColor,
                                             fontWeight: FontWeight.bold,
-                                          )),
+                                            textAlign: TextAlign.center,
+                                            fontSize: 14.sp)),
                     kSizedBoxH15,
                     Divider(
                       height: 2.h,
@@ -420,7 +429,9 @@ class MatchDetailScreen extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    StatisticsWidget(events: events,),
+                    StatisticsWidget(
+                      events: events,
+                    ),
                     RankingWidget(
                       events: events,
                     ),

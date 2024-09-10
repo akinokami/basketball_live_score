@@ -1,7 +1,6 @@
 import 'package:basketball_live_score/models/match_model.dart';
 import 'package:basketball_live_score/utils/color_const.dart';
 import 'package:basketball_live_score/utils/dimen_const.dart';
-import 'package:basketball_live_score/views/widgets/custom_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -22,6 +21,8 @@ final Events? events;
 
           children: [
             kSizedBoxH10,
+            ((matchController.matchDetails.value.competitionDetail?.rankingCompetition?.rankingList?.general?.length??0)<1)?
+            CustomText(text: "no_data".tr,fontSize: 12.sp,fontWeight: FontWeight.w500):
             Table(
 
               children: [
@@ -48,7 +49,7 @@ final Events? events;
                     ),
                     children: [
                       TableCell(child: CustomText(text:" ${(i+1)}"),verticalAlignment: TableCellVerticalAlignment.middle,),
-                      TableCell(verticalAlignment: TableCellVerticalAlignment.middle,child: CustomText(text:matchController.matchDetails.value.competitionDetail?.rankingCompetition?.rankingList?.general?[i].team?.name.toString(),maxLines: 4,fontSize: 9.sp,)),
+                      TableCell(verticalAlignment: TableCellVerticalAlignment.middle,child: CustomText(text:matchController.matchDetails.value.competitionDetail?.rankingCompetition?.rankingList?.general?[i].team?.name.toString(),maxLines: 4,fontSize: 10.sp,)),
                       const TableCell(verticalAlignment: TableCellVerticalAlignment.middle,child: CustomText(text:"")),
                       TableCell(verticalAlignment: TableCellVerticalAlignment.middle,child: CustomText(text:"${matchController.matchDetails.value.competitionDetail?.rankingCompetition?.rankingList?.general?[i].ranks?["2"]??"0"}",textAlign: TextAlign.center,)),
                       TableCell(verticalAlignment: TableCellVerticalAlignment.middle,child: CustomText(text:"${matchController.matchDetails.value.competitionDetail?.rankingCompetition?.rankingList?.general?[i].ranks?["3"]??"0"}",textAlign: TextAlign.center)),
