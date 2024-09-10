@@ -17,16 +17,20 @@ class SearchMatchController extends GetxController {
   }
 
   void searchMatch() {
-    // isLoading.value = true;
-    // if (searchTxtController.text != '') {
-    //   searchMatches.value = matches
-    //       .where((element) => (element.cName ?? '')
-    //           .toLowerCase()
-    //           .contains(searchTxtController.text.toLowerCase()))
-    //       .toList();
-    // } else {
-    searchMatches.value = matches;
-    // }
-    // isLoading.value = false;
+    isLoading.value = true;
+    if (searchTxtController.text != '') {
+      searchMatches.value = matches
+          .where((element) =>
+              (element.season?.competition?.country?.name ?? '')
+                  .toLowerCase()
+                  .contains(searchTxtController.text.toLowerCase()) ||
+              (element.season?.competition?.name ?? '')
+                  .toLowerCase()
+                  .contains(searchTxtController.text.toLowerCase()))
+          .toList();
+    } else {
+      searchMatches.value = matches;
+    }
+    isLoading.value = false;
   }
 }

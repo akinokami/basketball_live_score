@@ -28,34 +28,33 @@ class SearchScreen extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      body: Obx(
-        () => searchMatchController.isLoading.value
-            ? const Center(
-                child: CustomLoading(),
-              )
-            : searchMatchController.searchMatches.isEmpty
-                ? Center(
-                    child: CustomText(text: 'no_data'.tr),
-                  )
-                : Padding(
-                    padding: EdgeInsets.all(5.w),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(5.w),
-                          child: CustomTextFormField(
-                            controller:
-                                searchMatchController.searchTxtController,
-                            hintText: 'search'.tr,
-                            isValidate: false,
-                            onChange: (value) {
-                              searchMatchController.searchMatch();
-                            },
-                          ),
-                        ),
-                        kSizedBoxH10,
-                        Expanded(
-                          child: ListView.builder(
+      body: Padding(
+        padding: EdgeInsets.all(5.w),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(5.w),
+              child: CustomTextFormField(
+                controller: searchMatchController.searchTxtController,
+                hintText: 'search'.tr,
+                isValidate: false,
+                onChange: (value) {
+                  searchMatchController.searchMatch();
+                },
+              ),
+            ),
+            kSizedBoxH10,
+            Obx(
+              () => searchMatchController.isLoading.value
+                  ? const Center(
+                      child: CustomLoading(),
+                    )
+                  : Expanded(
+                      child: searchMatchController.searchMatches.isEmpty
+                          ? Center(
+                              child: CustomText(text: 'no_data'.tr),
+                            )
+                          : ListView.builder(
                               itemCount:
                                   searchMatchController.searchMatches.length,
                               itemBuilder: (context, index) {
@@ -106,9 +105,10 @@ class SearchScreen extends StatelessWidget {
                                   ],
                                 ));
                               }),
-                        ),
-                      ],
-                    )),
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }
