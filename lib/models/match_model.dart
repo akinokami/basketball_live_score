@@ -176,8 +176,8 @@ class Events {
   Team? homeTeam;
   Team? awayTeam;
   Scores? scores;
-  double? pourcent1;
-  double? pourcent2;
+  num? pourcent1;
+  num? pourcent2;
 
   Events({
     this.id,
