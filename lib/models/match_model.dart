@@ -7,7 +7,7 @@ class MatchModel {
   String? type;
   int? maxDay;
   bool? excluded;
-  List<int>? tabs;
+  //List<int>? tabs;
   String? slug;
   Season? season;
   List<Events>? events;
@@ -22,7 +22,7 @@ class MatchModel {
       this.type,
       this.maxDay,
       this.excluded,
-      this.tabs,
+     // this.tabs,
       this.slug,
       this.season,
       this.events,
@@ -37,7 +37,7 @@ class MatchModel {
     type = json['type'];
     maxDay = json['maxDay'];
     excluded = json['excluded'];
-    tabs = json['tabs'].cast<int>();
+    //tabs = json['tabs'].cast<int>();
     slug = json['slug'];
     season = json['season'] != null ? Season.fromJson(json['season']) : null;
     if (json['events'] != null) {
@@ -59,7 +59,7 @@ class MatchModel {
     data['type'] = type;
     data['maxDay'] = maxDay;
     data['excluded'] = excluded;
-    data['tabs'] = tabs;
+   // data['tabs'] = tabs;
     data['slug'] = slug;
     if (season != null) {
       data['season'] = season!.toJson();
@@ -255,9 +255,9 @@ class Team {
   String? name;
   String? slug;
   Country? country;
-  List<int>? tabs;
+  //List<int>? tabs;
 
-  Team({this.id, this.name, this.slug, this.country, this.tabs});
+  Team({this.id, this.name, this.slug, this.country});
 
   Team.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -265,7 +265,7 @@ class Team {
     slug = json['slug'];
     country =
         json['country'] != null ? Country.fromJson(json['country']) : null;
-    tabs = json['tabs'].cast<int>();
+    //tabs = json['tabs'].cast<int>();
   }
 
   Map<String, dynamic> toJson() {
@@ -276,7 +276,7 @@ class Team {
     if (country != null) {
       data['country'] = country!.toJson();
     }
-    data['tabs'] = tabs;
+    //data['tabs'] = tabs;
     return data;
   }
 }
