@@ -49,6 +49,7 @@ dependencies:
   percent_indicator: ^4.2.3
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -105,5 +106,5 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo.webp"
+  image_path: "assets/images/launcher.webp"
   min_sdk_android: 21

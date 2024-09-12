@@ -53,14 +53,14 @@ class MatchDetailScreen extends StatelessWidget {
                           },
                           child: SizedBox(
                             width: 100.w,
-                            height: 60.h,
+                            height: 70.h,
                             child: Column(
                               children: [
                                 Icon(Icons.sports_basketball,
                                     color: Colors.white, size: 20.sp),
                                 kSizedBoxH10,
                                 CustomText(
-                                  maxLines: 2,
+                                  maxLines: 3,
                                   text: events?.homeTeam?.name ?? '',
                                   color: Colors.white,
                                   textAlign: TextAlign.center,
@@ -72,7 +72,7 @@ class MatchDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(
                           width: 100.w,
-                          height: 60.h,
+                          height: 70.h,
                           child: Column(
                             children: [
                               Icon(Icons.star,
@@ -98,14 +98,14 @@ class MatchDetailScreen extends StatelessWidget {
                           },
                           child: SizedBox(
                             width: 100.w,
-                            height: 60.h,
+                            height: 70.h,
                             child: Column(
                               children: [
                                 Icon(Icons.sports_basketball,
                                     color: Colors.white, size: 20.sp),
                                 kSizedBoxH10,
                                 CustomText(
-                                  maxLines: 2,
+                                  maxLines: 3,
                                   text: events?.awayTeam?.name ?? '',
                                   color: Colors.white,
                                   textAlign: TextAlign.center,

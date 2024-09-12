@@ -8,7 +8,7 @@ class CustomText extends StatelessWidget {
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
   final String? fontFamily;
-  final bool? isEllip;
+  final bool? isEllipsis;
   final int? maxLines;
   const CustomText(
       {super.key,
@@ -18,7 +18,7 @@ class CustomText extends StatelessWidget {
       this.textAlign,
       this.fontWeight,
       this.fontFamily,
-      this.isEllip = true,
+      this.isEllipsis = true,
       this.maxLines});
 
   @override
@@ -30,7 +30,7 @@ class CustomText extends StatelessWidget {
             color: color ?? Colors.black,
             fontSize: fontSize ?? 12.sp,
             overflow:
-                isEllip == false ? TextOverflow.visible : TextOverflow.ellipsis,
+                isEllipsis == false ? TextOverflow.visible : TextOverflow.ellipsis,
             fontWeight: fontWeight ?? FontWeight.normal),
         textAlign: textAlign ?? TextAlign.start);
   }
