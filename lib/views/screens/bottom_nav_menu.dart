@@ -73,7 +73,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                                       borderRadius: BorderRadius.circular(6)),
                                   activeColor: secondaryColor,
                                   side: BorderSide(
-                                    width: 1.5,
+                                    width: 1,
                                     color: isChecked
                                         ? secondaryColor
                                         : Colors.black,
@@ -90,10 +90,13 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                                     });
                                   },
                                 ),
-                                CustomText(
-                                  text: 'agree'.tr,
-                                  color: secondaryColor,
-                                  fontSize: 12,
+                                Expanded(
+                                  child: CustomText(
+                                    text: 'agree'.tr,
+                                    color: secondaryColor,
+                                    maxLines: 2,
+                                    fontSize: 11.sp,
+                                  ),
                                 ),
                               ],
                             ),
@@ -108,7 +111,7 @@ class _BottomNavMenuState extends State<BottomNavMenu> {
                               child: CustomText(
                                 text: "accept".tr,
                                 color: whiteColor,
-                                fontSize: 12,
+                                fontSize: 12.sp,
                               ),
                               onPressed: isAccepted
                                   ? () async {
